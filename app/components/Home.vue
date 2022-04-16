@@ -1,41 +1,50 @@
 <template>
     <Page>
         <ActionBar>
-            <Label text="Home"/>
+            <Label text="Networking"/>
         </ActionBar>
 
         <GridLayout>
-            <Label class="info">
-                <FormattedString>
-                    <Span class="fas" text.decode="&#xf135; "/>
-                    <Span :text="message"/>
-                </FormattedString>
-            </Label>
+            <TabView selectedIndex="0">
+                <TabViewItem title="Pokemons">
+                    <Pokemon />
+                </TabViewItem>
+                <TabViewItem title="Valutes">
+                    <Valutes />
+                </TabViewItem>
+                <TabViewItem title="Age">
+                    <Predict />
+                </TabViewItem>
+            </TabView>
         </GridLayout>
     </Page>
 </template>
 
 <script>
-  export default {
-    computed: {
-      message() {
-        return "Blank {N}-Vue app";
-      }
+    import Pokemon from './Pokemon.vue'
+    import Valutes from './Valutes.vue'
+    import Predict from './Predicting.vue'
+
+    export default {
+        computed: {
+            
+        },
+        components:{
+            Pokemon,
+            Valutes,
+            Predict 
+        },
+        data() {
+            return{
+                
+            }
+        },
+        methods:{
+
+        }
     }
-  };
 </script>
 
 <style scoped lang="scss">
     @import '@nativescript/theme/scss/variables/blue';
-
-    // Custom styles
-    .fas {
-        @include colorize($color: accent);
-    }
-
-    .info {
-        font-size: 20;
-        horizontal-align: center;
-        vertical-align: center;
-    }
 </style>
